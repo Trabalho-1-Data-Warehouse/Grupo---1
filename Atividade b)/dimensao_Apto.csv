@@ -1,0 +1,16 @@
+idApartamento,numero,andar,tipo
+1,101,1,Standard
+2,102,1,Standard
+3,103,1,Standard
+4,201,2,Luxo
+5,202,2,Luxo
+6,203,2,Luxo
+7,301,3,Suite
+8,302,3,Suite
+9,303,3,Suite
+10,401,4,Premium
+11,402,4,Premium
+12,403,4,Premium
+13,501,5,Suite
+14,502,5,Suite
+15,503,5,Luxo
