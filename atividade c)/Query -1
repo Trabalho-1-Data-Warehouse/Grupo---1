@@ -1,0 +1,21 @@
+USE dw_hotel;
+ 
+-- QUERY 1 – Fato hospedagem
+-- Faturamento total por Agência e Motivo de Viagem e seu Tipo de Apartamento
+ 
+select
+    a.nome                          as agencia,
+    h.Motivo_Viagem                 as motivo_viagem,
+    ap.tipo                         as tipo_apartamento,
+    t.ano                           as ano,
+    t.mes                           as mes,
+    Count(*)                        as total_hospedagens,
+    Sum(h.Valor_Faturado)           as total_faturado,
+    Avg(h.Valor_Faturado)           as ticket_medio
+from Hospedagem h
+join Agencia a  on a.idAgencia          = h.Agencia_idAgencia
+join Apto ap    on ap.idApartamento     = h.Apartamento_idApartamento
+join Tempo t    on t.idTempo            = h.Tempo_idTempo
+join Hospede ho on ho.idHospede         = h.Hospede_idHospede
+group by a.nome, h.Motivo_Viagem, ap.tipo, t.ano, t.mes
+order by total_faturado desc;

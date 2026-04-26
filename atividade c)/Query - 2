@@ -1,0 +1,23 @@
+USE dw_hotel;
+
+-- QUERY 2 – Fato consumo
+-- Consumo total por Produto, Serviço e Hóspede
+
+select
+    ho.nome                         as hospede,
+    p.descricao                     as produto,
+    s.descricao                     as servico,
+    t.ano                           as ano,
+    t.mes                           as mes,
+    sum(c.quantidade)               as total_quantidade,
+    sum(c.Valor_Consumo)            as total_consumo,
+    avg(c.Valor_Consumo)            as media_consumo
+from Consumo c
+join Hospede ho on ho.idHospede         = c.Hospede_idHospede
+join Produto p  on p.idProduto          = c.Produto_idProduto
+join Servico s  on s.idServico          = c.Servico_idServico
+join Tempo t    on t.idTempo            = c.Tempo_idTempo
+join Apto ap    on ap.idApartamento     = c.Apto_idApartamento
+group by ho.nome, p.descricao, s.descricao, t.ano, t.mes
+order by total_consumo desc;
+ 

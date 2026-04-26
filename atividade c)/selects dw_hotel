@@ -1,0 +1,10 @@
+USE dw_hotel;
+
+select 'Hospede'    as tabela, count(*) as registros from Hospede    union all
+select 'Agencia',              count(*)               from Agencia    union all
+select 'Apto',                 count(*)               from Apto       union all
+select 'Produto',              count(*)               from Produto    union all
+select 'Servico',              count(*)               from Servico    union all
+select 'Tempo',                count(*)               from Tempo      union all
+select 'Hospedagem',           count(*)               from Hospedagem union all
+select 'Consumo',              count(*)               from Consumo;
